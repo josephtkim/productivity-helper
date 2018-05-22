@@ -5,8 +5,8 @@ It is inspired by To-do list and Goal-setting apps.
 
 Check it out LIVE [here](https://josephtkim.pythonanywhere.com)  
 
-<img src="./img/todos.png" width="45"> <img src="./img/goals.png" width="45">
-<img src="./img/journal.png" width="45"> <img src="./img/profile.png" width="45">
+<img src="./img/todos.png" width="300"> <img src="./img/goals.png" width="300">
+<img src="./img/journal.png" width="300"> <img src="./img/profile.png" width="300">
 
 ## Tools:  
 * [Django framework](https://www.djangoproject.com/)  
