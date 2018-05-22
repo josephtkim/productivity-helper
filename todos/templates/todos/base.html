@@ -27,11 +27,8 @@
           <a class="nav-item nav-link active" href="{% url 'todos:home' %}">To-Do's</a>
           <a class="nav-item nav-link" href="{% url 'goals:home' %}">Goals</a>
           <a class="nav-item nav-link" href="{% url 'journal:home' %}">Journal</a>
-          <a class="nav-item nav-link" href="#" onClick="document.getElementById('logout').submit()">
-            Logout
-          </a>
-
           <a class="nav-item nav-link" href="{% url 'accounts:profile' %}">Profile</a>
+          <a class="nav-item nav-link" href="#" onClick="document.getElementById('logout').submit()">Logout</a>
 
           {% else %}
           <a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Signup</a>
