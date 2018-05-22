@@ -5,10 +5,8 @@ It is inspired by To-do list and Goal-setting apps.
 
 Check it out LIVE [here](josephtkim.pythonanywhere.com)  
 
-![Toods Screen shot](./todos_image.png)
-![Goals Screen shot](./goals_image.png)
-![Journal Screen shot](./journal_image.png)
-![Profile Screen shot](./profile_image.png)
+![Toods Screen shot](./todos.png) ![Goals Screen shot](./goals.png)
+![Journal Screen shot](./journal.png) ![Profile Screen shot](./profile.png)
 
 ## Tools:  
 * [Django framework](https://www.djangoproject.com/)  
