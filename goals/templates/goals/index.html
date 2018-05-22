@@ -1,0 +1,133 @@
+{% extends 'goals/base.html' %}
+{% load static %}
+
+{% block content %}
+
+  <h1 class="goal-title">Goals</h1>
+  <div class="goal-container">
+    {% if error %}
+		{{ error }}
+		<br />
+		<br />
+		{% endif %}
+		<br />
+
+    <div class="new-goal-form-container">
+      <form method="POST" action="{% url 'goals:create' %}">
+      	{% csrf_token %}
+  			  Goal name: <input type="text" name="title" size="11" placeholder="Study" style="min-width: 100px;"/>
+          &nbsp;
+          Target: <input type="number" name="target_goal" min="0" max="500" value="2">
+          &nbsp;
+  		  	Units: <input type="text" name="units" size="11" placeholder="hours" />
+          <br />
+          <br />
+  		  	<input class="add-goal-button" type="submit" value="Add Goal">
+  		</form>
+    </div>
+
+		<br />
+
+		  {% for goal in goals %}
+          <div class="goal-item">
+						<div class="input-group">
+			        <div class="input-group-prepend" style="width: 60px">
+			          <button style="width: 60px; padding: 0" class="btn btn-outline-secondary goal-button" type="button" onClick="document.getElementById('increment_goal{{ goal.id }}').submit()">
+                  <img class="button-icon" src="{% static 'goals/plus.png' %}">
+                </button>
+			        </div>
+			        <div class="form-control goal-item-title" aria-describedby="basic-addon2">
+
+			        	<div class="progress goal-progress-bar">
+						  		<div class="progress-bar bg-warning" role="progressbar" style="width: {{ goal.current_progress }}%;" aria-valuenow="{{ goal.current_amount_done }}" aria-valuemin="0" aria-valuemax="100">
+					          <div class="exp-bar-title">
+					          	<div class="goal-title-container">
+					          		<a href="{% url 'goals:goal_edit' pk=goal.pk %}">{{ goal.title }}</a>
+					          	</div>
+					          	<div style="color: black; font-size: 13px">{{ goal.current_amount_done }} / {{ goal.amount_goal }}</div>
+					          	<div style="color: black; font-size: 13px">{{ goal.units }}</div>
+					          </div>
+					        </div>
+					      </div>
+
+			        </div>
+			        <div class="input-group-append" style="width: 60px">
+			        	<button style="width: 30px; padding: 0" class="btn btn-outline-secondary goal-button" type="button" onClick="document.getElementById('reset_goal{{ goal.id }}').submit()">
+                  <img src="{% static 'goals/refresh.png' %}">
+                </button>
+			          <button style="width: 30px; padding: 0" class="btn btn-outline-secondary goal-button" type="button" onClick="document.getElementById('delete_goal{{ goal.id }}').submit()">
+                  <img src="{% static 'goals/delete.png' %}">
+                </button>
+			        </div>
+			      </div>
+					</div>
+
+			  <form id="increment_goal{{ goal.id }}" method="POST" action="{% url 'goals:increment_goal' goal.id %}">
+			    {% csrf_token %}
+			    <input type="hidden">
+			  </form>
+
+			  <form id="reset_goal{{ goal.id }}" method="POST" action="{% url 'goals:reset_goal' goal.id %}">
+			    {% csrf_token %}
+			    <input type="hidden">
+			  </form>
+
+			  <form id="delete_goal{{ goal.id }}" method="POST" action="{% url 'goals:delete_goal' goal.id %}">
+			    {% csrf_token %}
+			    <input type="hidden">
+			  </form>
+		  {% endfor %}
+
+      {% if completed_goals %}
+        <br /><br />
+        <h4 style='text-align: center'>Completed Goals</h4>
+        <br />
+      {% endif %}
+      {% for completed_goal in completed_goals %}
+
+					<div class="goal-item">
+						<div class="input-group">
+			        <div class="input-group-prepend" style="width: 60px">
+			          <button style="width: 60px" class="btn btn-outline-secondary completed-goal-button" type="button">
+                  <img class="button-icon" src="{% static 'goals/plus.png' %}">
+                </button>
+			        </div>
+			        <div class="form-control goal-item-title" aria-describedby="basic-addon2">
+
+			        	<div class="progress goal-progress-bar">
+						  		<div class="progress-bar bg-success" role="progressbar" style="width: {{ completed_goal.current_progress }}%;" aria-valuenow="{{ completed_goal.current_amount_done }}" aria-valuemin="0" aria-valuemax="100">
+					          <div class="exp-bar-title">
+					          	<div>
+					          		<span class='completed-goal-title' style='color: black'>{{ completed_goal.title }}</span>
+					          	</div>
+					          	<div style="color: white; font-size: 13px">{{ completed_goal.current_amount_done }} / {{ completed_goal.amount_goal }}</div>
+					          	<div style="color: white; font-size: 13px">{{ completed_goal.units }}</div>
+					          </div>
+					        </div>
+					      </div>
+
+			        </div>
+			        <div class="input-group-append" style="width: 60px">
+			        	<button style="width: 30px; padding: 0" class="btn btn-outline-secondary completed-goal-button" type="button" onClick="document.getElementById('reset_goal{{ completed_goal.id }}').submit()">
+                  <img src="{% static 'goals/refresh.png' %}">
+                </button>
+			          <button style="width: 30px; padding: 0" class="btn btn-outline-secondary completed-goal-button" type="button" onClick="document.getElementById('delete_goal{{ completed_goal.id }}').submit()">
+                  <img src="{% static 'goals/delete.png' %}">
+                </button>
+			        </div>
+			      </div>
+					</div>
+
+        <form id="reset_goal{{ completed_goal.id }}" method="POST" action="{% url 'goals:reset_goal' completed_goal.id %}">
+          {% csrf_token %}
+          <input type="hidden">
+        </form>
+
+        <form id="delete_goal{{ completed_goal.id }}" method="POST" action="{% url 'goals:delete_goal' completed_goal.id %}">
+          {% csrf_token %}
+          <input type="hidden">
+        </form>
+      {% endfor %}
+    <br />
+  </div>
+{% endblock %}

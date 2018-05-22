@@ -1,0 +1,18 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<h1 class="profile-title">Account Profile</h1>
+<div class="profile-container">
+	<br />
+	<h2 class="profile-username">{{ profile.user.username }}</h2>
+	<br />
+
+	<h5 class="profile-level">Level: {{ profile.level }}</h5>
+	<h5 class="profile-experience">Experience:</h5>
+
+	<div class="progress progress-container" style="text-align: center">
+	  <div class="exp-bar progress-bar" role="progressbar" style="width: {{ profile.experience_points }}%;" aria-valuenow="{{ profile.experience_points }}" aria-valuemin="0" aria-valuemax="100"></div>
+		<div class="exp-bar-title">{{ profile.experience_points }} / 100</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'goals/base.html' %}
+
+{% block content %}
+<h1>GOAL DETAIL</h1>
+
+{{ goal }}
+<a href="{% url 'goals:goal_edit' pk=goal.pk %}">Edit</a>
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends 'todos/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1 class="todo-title">To-Do's</h1>
+<div class="todo-container">
+  <br />
+
+    <div class="new-todo-item-form">
+      <form method="POST" action="{% url 'todos:create' %}">
+        {% csrf_token %}
+        Task name: <input type="text" name="title" placeholder="Groceries"/>
+        &nbsp;
+        Exp Earned: <input type="number" name="point_value" min="0" max="100" value="10">
+        <br />
+        <br />
+        <input class="add-todo-button" type="submit" value="Add To-Do">
+      </form>
+    </div>
+
+    <br />
+
+    {% for todo in todos %}
+      {% if not todo.completed %}
+      <div class="input-group todo-item">
+        <div class="input-group-prepend">
+          <button style="width: 40px; padding: 0" class="btn btn-outline-secondary todo-button" type="button" onClick="document.getElementById('mark_complete{{ todo.id }}').submit()">
+            <img class="button-icon" src="{% static 'todos/uncheckedbox.png' %}">
+          </button>
+        </div>
+
+        <div class="form-control todo-item-title" aria-describedby="basic-addon2">
+          <a href="{% url 'todos:todo_edit' pk=todo.pk %}">{{ todo.title_summary }}</a>
+        </div>
+
+        <div class="input-group-append">
+          <button style="width: 40px; padding: 0" class="btn btn-outline-secondary todo-button" type="button" onClick="document.getElementById('delete_todo{{ todo.id }}').submit()">
+            <img class="button-icon" src="{% static 'todos/delete.png' %}">
+          </button>
+        </div>
+      </div>
+
+      <form id="mark_complete{{ todo.id }}" method="POST" action="{% url 'todos:mark_complete' todo.id %}">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+
+      <form id="delete_todo{{ todo.id }}" method="POST" action="{% url 'todos:delete_todo' todo.id %}">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+
+      {% endif %}
+    {% endfor %}
+
+
+    {% if completed_todos %}
+    <br />
+    <br />
+    <div class="clear-complete">
+      <a href="{% url 'todos:clear_completed' %}">Clear Completed</a>
+    </div>
+
+    <br />
+
+    {% for todo in completed_todos %}
+    <div class="input-group todo-item completed-todo">
+        <div class="input-group-prepend">
+          <button style="width: 40px; padding: 0" class="btn btn-outline-secondary completed-todo-button" type="button" onClick="document.getElementById('unmark_complete{{ todo.id }}').submit()">
+            <img class="button-icon" src="{% static 'todos/checkedbox.png' %}">
+          </button>
+        </div>
+        <div class="form-control todo-item-title" aria-describedby="basic-addon2">
+          <span class='completed-todo-title'>{{ todo.title_summary }}</span>
+        </div>
+        <div class="input-group-append">
+          <button style="width: 40px; padding: 0" class="btn btn-outline-secondary completed-todo-button" type="button" onClick="document.getElementById('delete_todo{{ todo.id }}').submit()">
+            <img class="button-icon" src="{% static 'todos/delete.png' %}">
+          </button>
+        </div>
+      </div>
+
+      <form id="unmark_complete{{ todo.id }}" method="POST" action="{% url 'todos:unmark_complete' todo.id %}">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+      <form id="delete_todo{{ todo.id }}" method="POST" action="{% url 'todos:delete_todo' todo.id %}">
+        {% csrf_token %}
+        <input type="hidden">
+      </form>
+    {% endfor %}
+
+  {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<div class="signup-form-container">
+	<br />
+	<h1 class="signup-form-title">Sign Up</h1>
+
+	<div class="error-block">
+	{% if error %}
+		{{ error }}
+	{% else %}
+		<br />
+	{% endif %}
+	</div>
+
+	<form method="POST" action="{% url 'accounts:signup' %}">
+		{% csrf_token %}
+	  Username:
+	  <br />
+	  <input class="form-control" type="text" name="username" />
+
+	  Email:
+	  <br />
+	  <input class="form-control" type="email" name="email" />
+
+	  Password:
+	  <br />
+	  <input class="form-control" type="password" name="password1" />
+
+	  Confirm Password:
+	  <br />
+	  <input class="form-control" type="password" name="password2" />
+	  <br />
+
+	  <div class="signup-button-container text-center">
+	  	<input type="submit" class="btn btn-primary " value="Sign Up">
+		</div>
+	</form>
+
+	<div class="login-suggestion">
+		Already have an account? <a href="{% url 'accounts:login' %}">Login</a>
+	</div>
+</div>
+{% endblock %}

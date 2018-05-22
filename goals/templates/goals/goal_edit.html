@@ -1,0 +1,13 @@
+{% extends 'goals/base.html' %}
+
+{% block content %}
+<br />
+<div class="goal-edit-container">
+  <form method="POST">{% csrf_token %}
+    {{ form.as_p }}
+    <div class="goal-edit-button text-center">
+      <input type="submit" class="btn btn-primary" value="Save">
+    </div>
+  </form>
+</div>
+{% endblock %}

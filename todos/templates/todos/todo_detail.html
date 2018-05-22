@@ -1,0 +1,14 @@
+{% extends 'todos/base.html' %}
+
+{% block content %}
+This is the Detail page!
+<br />
+
+Post ID:
+{{ todo }}
+
+<br />
+<br />
+<a href="{% url 'todos:todo_edit' pk=todo.pk %}">Edit</a>
+
+{% endblock %}

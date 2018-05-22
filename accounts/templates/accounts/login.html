@@ -1,0 +1,40 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+<br />
+<div class="login-form-container">
+	<h1 class="login-form-title">Login</h1>
+	<div class="error-block">
+	{% if error %}
+		{{ error }}
+	{% else %}
+		<br />
+	{% endif %}
+	</div>
+
+	<form method="POST" action="{% url 'accounts:login' %}">
+		{% csrf_token %}
+
+		{% if request.GET.next %}
+		  <input type="hidden" name="next" value={{ request.GET.next }} />
+	  {% endif %}
+
+	  Username:
+	  <br />
+	  <input class="form-control" type="text" name="username" />
+
+	  Password:
+	  <br />
+	  <input class="form-control" type="password" name="password" />
+	  <br />
+
+	  <div class="login-button-container text-center">
+	  	<input type="submit" class="btn btn-primary " value="Login">
+		</div>
+	</form>
+
+	<div class="signup-suggestion">
+		Don't have an account? <a href="{% url 'accounts:signup' %}">Sign Up</a>
+	</div>
+</div>
+{% endblock %}
