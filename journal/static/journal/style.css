@@ -141,3 +141,7 @@ a:active {
 .new-entry-button {
 	background-color: white;
 }
+
+form {
+	margin: 0;
+}

@@ -3,11 +3,20 @@
 {% block content %}
 <br />
 <div class="entry-edit-container">
+  <h2 style='text-align: center;'>Edit Entry</h2>
+  <br />
+
   <form method="POST">{% csrf_token %}
     {{ form.as_p }}
     <div class="entry-edit-button text-center">
       <input type="submit" class="btn btn-primary" value="Save">
     </div>
   </form>
+
+  <br />
+  <a style='text-align: center' href="{% url 'journal:home' %}">
+    <h5 style='text-align: center; font-size: 15px'>Cancel</h5>
+  </a>
+
 </div>
 {% endblock %}

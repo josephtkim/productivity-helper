@@ -3,11 +3,19 @@
 {% block content %}
 <br />
 <div class="goal-edit-container">
+  <h2 style='text-align: center;'>Edit Goal</h2>
+  <br />
+
   <form method="POST">{% csrf_token %}
     {{ form.as_p }}
     <div class="goal-edit-button text-center">
       <input type="submit" class="btn btn-primary" value="Save">
     </div>
   </form>
+
+  <br />
+  <a style='text-align: center' href="{% url 'goals:home' %}">
+    <h5 style='text-align: center; font-size: 15px'>Cancel</h5>
+  </a>
 </div>
 {% endblock %}

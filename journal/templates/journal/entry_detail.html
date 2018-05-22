@@ -2,8 +2,6 @@
 {% load static %}
 
 {% block content %}
-<h1 class="journal-title">Journal</h1>
-
 <br />
 <div class='journal-container'>
 <div class="journal-entry-options">
@@ -21,7 +19,6 @@
 <div class='entry-detail-container'>
   <h1 class="entry-detail-title">{{ entry.title }}</h1>
   <h5 class="entry-detail-date">Published on {{ entry.clean_date }}</h5>
-  <br />
 
   <p class="entry-content">
     {{ entry.content|linebreaks }}
