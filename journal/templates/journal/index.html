@@ -9,7 +9,7 @@
 	</div>
 
 	<br />
-  {% for entry in entries %}		
+  {% for entry in entries %}
     <div class="journal-entry">
       <a class="entry-title" href="{% url 'journal:entry_detail' pk=entry.pk %}">{{ entry.title }}</a>
 

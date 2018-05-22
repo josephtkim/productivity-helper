@@ -2,22 +2,24 @@
 {% load static %}
 
 {% block content %}
+<h1 class="journal-title">Journal</h1>
+
 <br />
+<div class="journal-entry-options">
+  <a href="{% url 'journal:entry_edit' pk=entry.pk %}">
+    <img src="{% static 'journal/edit_entry.png' %}">
+  </a>
+  <a href="#" onClick="document.getElementById('delete_entry{{ entry.id }}').submit()">
+    <img src="{% static 'journal/delete_entry.png' %}">
+  </a>
+</div>
+
+  <br />
+  <br />
+
 <div class='entry-detail-container'>
   <h1 class="entry-detail-title">{{ entry.title }}</h1>
-  <h5 class="entry-detail-date">{{ entry.clean_date }}</h5>
-  <br />
-
-  <div class="journal-entry-options">
-    <a href="{% url 'journal:entry_edit' pk=entry.pk %}">
-      <img src="{% static 'journal/edit_entry.png' %}">
-    </a>
-    <a href="#" onClick="document.getElementById('delete_entry{{ entry.id }}').submit()">
-      <img src="{% static 'journal/delete_entry.png' %}">
-    </a>
-  </div>
-
-  <br />
+  <h5 class="entry-detail-date">Published on {{ entry.clean_date }}</h5>
   <br />
 
   <p class="entry-content">
@@ -29,4 +31,9 @@
     <input type="hidden">
   </form>
 </div>
+
+
+
+<br />
+<br />
 {% endblock %}

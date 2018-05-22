@@ -33,7 +33,7 @@
 
 .journal-entry {
 	padding: 20px;
-	margin-top: 30px;
+	margin-top: 15px;
 	margin-bottom: 60px;
 	overflow-wrap: break-word;
   word-wrap: break-word;
@@ -75,12 +75,26 @@
   word-wrap: break-word;
 }
 
+.entry-detail-container {
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-radius: 4px;
+	background-color: #f8f3ed;
+}
+
 .entry-detail-title, .entry-new-title {
 	text-align: center;
+}
+.entry-detail-title {
+	color: tan;
+	font-weight: bold;
+	font-size: 30px;
 }
 
 .entry-detail-date {
 	text-align: center;
+	font-size: 16px;
+	color: gray;
 }
 
 .error-block {
