@@ -3,10 +3,12 @@ Application that helps you keep track of your tasks and long-term goals to stay 
 Written in Python using the Django framework.  
 It is inspired by To-do list and Goal-setting apps.  
 
-Check it out LIVE [here](josephtkim.pythonanywhere.com)  
+Check it out LIVE [here](https://josephtkim.pythonanywhere.com)  
 
-![Toods Screen shot](./todos.png) ![Goals Screen shot](./goals.png)
-![Journal Screen shot](./journal.png) ![Profile Screen shot](./profile.png)
+<img src="./todos.png" with="100">
+<img src="./goals.png" with="100">
+<img src="./journal.png" with="100">
+<img src="./profile.png" with="100">
 
 ## Tools:  
 * [Django framework](https://www.djangoproject.com/)  
