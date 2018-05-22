@@ -5,6 +5,7 @@
 <h1 class="journal-title">Journal</h1>
 
 <br />
+<div class='journal-container'>
 <div class="journal-entry-options">
   <a href="{% url 'journal:entry_edit' pk=entry.pk %}">
     <img src="{% static 'journal/edit_entry.png' %}">
@@ -31,7 +32,7 @@
     <input type="hidden">
   </form>
 </div>
-
+</div>
 
 
 <br />

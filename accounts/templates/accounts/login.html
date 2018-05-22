@@ -1,9 +1,9 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-<br />
+<h1 class="login-form-title">Login</h1>
+
 <div class="login-form-container">
-	<h1 class="login-form-title">Login</h1>
 	<div class="error-block">
 	{% if error %}
 		{{ error }}
@@ -34,6 +34,7 @@
 	</form>
 
 	<div class="signup-suggestion">
+		<br />
 		Don't have an account? <a href="{% url 'accounts:signup' %}">Sign Up</a>
 	</div>
 </div>

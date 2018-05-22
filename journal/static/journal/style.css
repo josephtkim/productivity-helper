@@ -1,8 +1,6 @@
 .journal-container {
 	max-width: 700px;
-	min-width: 400px;
 	margin: 0 auto;
-	padding: 20px;
 
 	text-align: center;
 	font-family: 'Roboto', sans-serif;
@@ -15,7 +13,6 @@
 
 .journal-title {
 	width: 100%;
-	min-width: 500px;
 	background-color: tan;
 	text-align: center;
 	padding: 10px;
@@ -32,9 +29,11 @@
 }
 
 .journal-entry {
+	width: 96%;
 	padding: 20px;
+	margin: 0 auto;
 	margin-top: 15px;
-	margin-bottom: 60px;
+	margin-bottom: 40px;
 	overflow-wrap: break-word;
   word-wrap: break-word;
 	border-left: 1px solid gray;
@@ -61,15 +60,25 @@
 }
 
 .entry-content {
+	margin-top: 40px;
 	max-width: 700px;
-	min-width: 400px;
 }
 
-.entry-detail-container, .entry-edit-container, .entry-new-container {
+.entry-detail-container {
 	max-width: 700px;
-	min-width: 400px;
+	width: 96%;
 	margin: 0 auto;
 	padding: 20px;
+
+	overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.entry-edit-container, .entry-new-container {
+	max-width: 700px;
+	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
 
 	overflow-wrap: break-word;
   word-wrap: break-word;

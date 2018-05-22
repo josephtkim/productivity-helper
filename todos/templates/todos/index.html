@@ -2,20 +2,22 @@
 {% load static %}
 
 {% block content %}
-
 <h1 class="todo-title">To-Do's</h1>
-<div class="todo-container">
-  <br />
 
+<br />
+<div class="todo-container">
     <div class="new-todo-item-form">
       <form method="POST" action="{% url 'todos:create' %}">
         {% csrf_token %}
-        Task name: <input type="text" name="title" placeholder="Groceries"/>
-        &nbsp;
-        Exp Earned: <input type="number" name="point_value" min="0" max="100" value="10">
-        <br />
-        <br />
-        <input class="add-todo-button" type="submit" value="Add To-Do">
+        <div class="new-todo-field" style="margin-bottom: 8px; display: inline-block;">
+          Task name: <input type="text" name="title" placeholder="Groceries"/>
+        </div>
+        <div class="new-todo-field" style="margin-bottom: 8px; display: inline-block;">
+          Exp Earned: <input type="number" name="point_value" min="0" max="100" value="10">
+        </div>
+        <div>
+          <input class="add-todo-button" type="submit" value="Add To-Do">
+        </div>
       </form>
     </div>
 

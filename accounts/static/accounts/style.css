@@ -1,8 +1,8 @@
-
 .signup-form-container, .login-form-container {
 	max-width: 480px;
-	min-width: 360px;
 	margin: 0 auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 .signup-form-title, .login-form-title, .profile-title {
@@ -12,9 +12,9 @@
 }
 
 .profile-container {
+	width: 96%;
 	max-width: 460px;
-	min-width: 320px;
-	padding: 40px;
+	padding: 20px;
 	margin: 0 auto;
 	font-family: 'Roboto', sans-serif;
 
@@ -22,10 +22,9 @@
 	border-radius: 10px;
 }
 
-.profile-title {
+.profile-title, .login-form-title, .signup-form-title {
 	width: 100%;
-	min-width: 320px;
-	background-color: lightgray;
+	background-color: #595959;
 	text-align: center;
 	padding: 10px;
 	color: white;
@@ -90,4 +89,8 @@ a:active {
 
 .signup-form-title, .login-form-title {
 	font-family: 'Bree Serif', serif;
+}
+
+form {
+	margin: 0;
 }
