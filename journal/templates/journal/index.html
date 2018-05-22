@@ -9,14 +9,15 @@
 	</div>
 
 	<br />
-  {% for entry in entries %}
+  {% for entry in entries %}		
     <div class="journal-entry">
       <a class="entry-title" href="{% url 'journal:entry_detail' pk=entry.pk %}">{{ entry.title }}</a>
-    </div>
 
-    <p class='entry-date'>{{ entry.clean_date }}</p>
-    <p class="entry-content">{{ entry.show_summary|linebreaks  }}</p>
-    <br />
+			<p class='entry-date'>Published on {{ entry.clean_date }}</p>
+	    <p class="entry-content">{{ entry.show_summary|linebreaks }}</p>
+    </div>
   {% endfor %}
+	<br />
+	<br />
 </div>
 {% endblock %}

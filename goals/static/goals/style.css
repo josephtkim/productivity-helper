@@ -121,3 +121,7 @@ a:active {
 .goal-title-container a:hover {
  	color: blue;
 }
+
+form {
+	margin: 0;
+}

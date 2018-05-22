@@ -32,25 +32,37 @@
 }
 
 .journal-entry {
-	margin-top: 20px;
+	padding: 20px;
+	margin-top: 30px;
+	margin-bottom: 60px;
+	overflow-wrap: break-word;
+  word-wrap: break-word;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-radius: 4px;
+	background-color: #f8f3ed;
 }
 
 .entry-title {
-	color: black;
+	color: tan;
 	font-size: 24px;
 	text-decoration: none;
+	font-weight: bold;
 }
 .entry-title:hover {
-	color: tan;
+	color: #a57940;
 }
 
 .entry-date {
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 500;
+	font-family: arial;
+	color: gray;
 }
 
 .entry-content {
-
+	max-width: 700px;
+	min-width: 400px;
 }
 
 .entry-detail-container, .entry-edit-container, .entry-new-container {
@@ -58,6 +70,9 @@
 	min-width: 400px;
 	margin: 0 auto;
 	padding: 20px;
+
+	overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .entry-detail-title, .entry-new-title {

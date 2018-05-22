@@ -27,8 +27,15 @@
           <a class="nav-item nav-link" href="{% url 'todos:home' %}">To-Do's</a>
           <a class="nav-item nav-link active" href="{% url 'goals:home' %}">Goals</a>
           <a class="nav-item nav-link" href="{% url 'journal:home' %}">Journal</a>
-          <a class="nav-item nav-link" href="{% url 'accounts:profile' %}">Profile</a>
-          <a class="nav-item nav-link" href="#" onClick="document.getElementById('logout').submit()">Logout</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="{% url 'accounts:profile' %}">Profile</a>
+              <a class="dropdown-item" href="#" onClick="document.getElementById('logout').submit()">Logout</a>
+            </div>
+          </li>
 
           {% else %}
           <a class="nav-item nav-link" href="{% url 'accounts:signup' %}">Signup</a>

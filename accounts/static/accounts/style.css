@@ -1,3 +1,4 @@
+
 .signup-form-container, .login-form-container {
 	max-width: 480px;
 	min-width: 360px;
@@ -6,13 +7,19 @@
 
 .signup-form-title, .login-form-title, .profile-title {
 	text-align: center;
+	overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .profile-container {
 	max-width: 460px;
 	min-width: 320px;
+	padding: 40px;
 	margin: 0 auto;
 	font-family: 'Roboto', sans-serif;
+
+	border: 1px solid lightgray;
+	border-radius: 10px;
 }
 
 .profile-title {
@@ -27,17 +34,19 @@
 
 .profile-username {
 	text-align: center;
-	font-size: 38px;
+	font-size: 42px;
 	color: black;
 	font-weight: bold;
+	overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 .profile-level {
-	text-align: center;
-	font-size: 30px;
+	text-align: left;
+	font-size: 25px;
 }
 .profile-experience {
-	text-align: center;
-	font-size: 23px;
+	text-align: left;
+	font-size: 25px;
 }
 .progress-container {
 	height: 30px;

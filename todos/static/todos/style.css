@@ -89,6 +89,7 @@ a:active {
 	padding: 10px;
 	font-size: 20px;
 	overflow: hidden;
+	white-space: nowrap;
 	border: 1px solid #f2f2f2;
 }
 
@@ -108,4 +109,8 @@ a:active {
 
 .completed-todo-button:hover, .todo-button:hover {
 	background-color: #76bdd5;
+}
+
+form {
+	margin: 0;
 }

@@ -1,13 +1,12 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-<h1 class="profile-title">Account Profile</h1>
-<div class="profile-container">
-	<br />
-	<h2 class="profile-username">{{ profile.user.username }}</h2>
-	<br />
+<h1 class="profile-title">{{ profile.user.username }}</h1>
 
-	<h5 class="profile-level">Level: {{ profile.level }}</h5>
+<br />
+<div class="profile-container">
+
+	<h5 class="profile-level">Level: <span style="color: blue">{{ profile.level }}</span></h5>
 	<h5 class="profile-experience">Experience:</h5>
 
 	<div class="progress progress-container" style="text-align: center">
