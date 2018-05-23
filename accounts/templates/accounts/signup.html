@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1 class="signup-form-title">Sign Up</h1>
-<div class="signup-form-container">	
+<div class="signup-form-container">
 	<div class="error-block">
 	{% if error %}
 		{{ error }}
@@ -40,4 +40,6 @@
 		Already have an account? <a href="{% url 'accounts:login' %}">Login</a>
 	</div>
 </div>
+<br />
+<br />
 {% endblock %}
