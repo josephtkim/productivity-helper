@@ -8,7 +8,7 @@
       <form method="POST" action="{% url 'todos:create' %}">
         {% csrf_token %}
         <div class="new-todo-field" style="margin-bottom: 8px; display: inline-block;">
-          Task name: <input type="text" name="title" placeholder="Groceries"/>
+          Task name: <input type="text" name="title" placeholder="Groceries" required="required" />
         </div>
         <div class="new-todo-field" style="margin-bottom: 8px; display: inline-block;">
           Exp Earned: <input type="number" name="point_value" min="0" max="100" value="10">

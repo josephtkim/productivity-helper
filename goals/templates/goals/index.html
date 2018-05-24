@@ -9,15 +9,15 @@
       <form method="POST" action="{% url 'goals:create' %}">
     	{% csrf_token %}
 			  <div class="new-goal-field" style="display: inline-block; margin-bottom: 8px">
-          Goal name: <input type="text" name="title" size="11" placeholder="Study" style="min-width: 100px;"/>
+          Goal name: <input type="text" name="title" size="11" placeholder="Study" required="required" style="min-width: 100px;"/>
         </div>
         &nbsp;
         <div class="new-goal-field" style="display: inline-block; margin-bottom: 8px">
-          Target: <input type="number" name="target_goal" min="0" max="500" value="2">
+          Target: <input type="number" name="target_goal" min="1" max="500" value="2">
         </div>
         &nbsp;
         <div class="new-goal-field" style="display: inline-block; margin-bottom: 8px">
-		  	  Units: <input type="text" name="units" size="11" placeholder="hours" />
+		  	  Units: <input type="text" name="units" size="11" placeholder="hours" required="required" />
         </div>
         <div>
 		  	  <input class="add-goal-button" type="submit" value="Add Goal">

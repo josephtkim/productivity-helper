@@ -6,6 +6,7 @@ class TodoForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['title'].widget.attrs.update({'class': 'form-control'})
         self.fields['point_value'].widget.attrs.update({'class': 'form-control'})
+        self.fields['point_value'].widget.attrs['min'] = 1
         self.fields['point_value'].label = 'Experience Points'
 
     class Meta:

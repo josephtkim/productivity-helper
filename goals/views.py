@@ -48,6 +48,10 @@ def goal_edit(request, pk):
             goal = form.save(commit=False)
             goal.author = request.user
             goal.pub_date = timezone.now()
+
+            if goal.current_amount_done >= goal.amount_goal:
+                goal.increment()
+
             goal.save()
             return redirect('goals:home')
     else:
